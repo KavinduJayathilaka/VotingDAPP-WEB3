@@ -88,7 +88,7 @@ const ProposalDetails = () => {
               data-mdb-ripple-color="light"
               onClick={() => onVote(true)}
             >
-              Accept
+              Vote
             </button>
             <button
               type="button"
