@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useGlobalState, setGlobalState } from '../store'
 import { toast } from 'react-toastify'
 import { performContribute } from '../Blockchain.services'
+import bannerLogo from '../assets/svg/Business_SVG.svg'
 
 const Banner = () => {
   const [isStakeholder] = useGlobalState('isStakeholder')
@@ -28,9 +29,25 @@ const Banner = () => {
 
   return (
     <div className="p-8">
-      <div className="flex flex-row justify-between items-center">
-        <h1 className="font-semibold text-3xl mb-5">Welcome to ElexChain</h1>
-      </div>
+    <section className="dark:bg-gray-800 dark:text-gray-100">
+	   <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
+		 <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
+     <img src= {bannerLogo} alt="" className="object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128" />
+		</div>
+		<div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
+			<h1 className="text-5xl font-bold leading-none sm:text-6xl">Secure
+				<span className="dark:text-violet-400">Voting</span> Solutions in Sri Lanka
+			</h1>
+			<p className="mt-6 mb-8 text-lg sm:mb-12">nsuring fair and transparent elections <br />
+				<br className="hidden md:inline lg:hidden" />for all Sri Lankan citizens
+			</p>
+			<div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
+				<a rel="noopener noreferrer" href="#" className="px-8 py-3 text-lg font-semibold rounded dark:bg-violet-400 dark:text-gray-900">Learn More</a>
+				<a rel="noopener noreferrer" href="#" className="px-8 py-3 text-lg font-semibold border rounded dark:border-gray-100">Contact Us</a>
+			</div>
+		</div>
+	</div>
+</section>
       <hr className="my-6 border-gray-300 dark:border-gray-500" />
 
 
