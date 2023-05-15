@@ -10,6 +10,7 @@ import {
 import Header from './components/Header'
 import Home from './views/Home'
 import Proposal from './views/Proposal'
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   const [loaded, setLoaded] = useState(false)
@@ -41,6 +42,7 @@ const App = () => {
         draggable
         pauseOnHover
       />
+      <Footer />
     </div>
   )
 }
