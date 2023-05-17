@@ -42,7 +42,7 @@ const CreateProposal = () => {
       <div className="bg-white dark:bg-[#212936] shadow-xl shadow-[#122643] dark:shadow-gray-500 rounded-xl w-11/12 md:w-2/5 h-7/12 p-6">
         <form className="flex flex-col">
           <div className="flex flex-row justify-between items-center">
-            <p className="font-semibold">Raise Proposal</p>
+            <p className="font-semibold">Create Campaign</p>
             <button
               type="button"
               onClick={closeModal}
@@ -116,7 +116,7 @@ const CreateProposal = () => {
               transition duration-150 ease-in-out mt-5"
             onClick={handleSubmit}
           >
-            Submit Proposal
+            Submit Campaign
           </button>
         </form>
       </div>

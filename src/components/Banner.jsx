@@ -38,7 +38,7 @@ const Banner = () => {
 			<h1 className="text-5xl font-bold leading-none sm:text-6xl">Secure
 				<span className="dark:text-violet-400">Voting</span> Solutions in Sri Lanka
 			</h1>
-			<p className="mt-6 mb-8 text-lg sm:mb-12">nsuring fair and transparent elections <br />
+			<p className="mt-6 mb-8 text-lg sm:mb-12">ensuring fair and transparent elections <br />
 				<br className="hidden md:inline lg:hidden" />for all Sri Lankan citizens
 			</p>
 			<div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
@@ -55,7 +55,7 @@ const Banner = () => {
         {opened()} Campaign{opened() == 1 ? '' : 's'} Currently Opened
       </h2>
       <p>
-        Current DAO Balance: <strong>{balance} Eth</strong> <br />
+        Current Campaign Balance: <strong>{balance} Eth</strong> <br />
         Your contributions:{' '}
         <span>
           <strong>{mybalance} Eth</strong>

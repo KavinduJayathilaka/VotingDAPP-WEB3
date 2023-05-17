@@ -11,21 +11,19 @@ const Footer = () => {
           className="lg:text-4xl text-3xl md:mb-0 mb-6 lg:leading-normal font-semibold
          md:w-2/5"
         >
-          <span className="text-teal-400">Free</span> until you're ready to
-          launch
+          <span className="text-teal-400">ElexChain</span> Transforming Democracy with Blockchain Innovation
         </h1>
         <div>
           <input
             type="text"
-            placeholder="Enter Your ph.no"
+            placeholder="Enter Your Email"
             className="text-gray-800
            sm:w-72 w-full sm:mr-5 mr-1 lg:mb-0 mb-4 py-2.5 rounded px-2 focus:outline-none"
           />
           <button
-            className="bg-teal-400 hover:bg-teal-500 duration-300 px-5 py-2.5 font-[Poppins]
-           rounded-md text-white md:w-auto w-full"
+            className="px-8 py-3 text-lg font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
           >
-            Request Code
+            Subscribe
           </button>
         </div>
       </div>
