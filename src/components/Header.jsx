@@ -4,12 +4,14 @@ import { FaUserSecret, FaMoon } from 'react-icons/fa'
 import { useEffect, useState } from 'react'
 import { truncate, useGlobalState } from '../store'
 import { connectWallet } from '../Blockchain.services'
+import { useTranslation } from 'react-i18next'
 
 const Header = () => {
   const [theme, setTheme] = useState(localStorage.theme)
   const themeColor = theme === 'dark' ? 'light' : 'dark'
   const darken = theme === 'dark' ? true : false
   const [connectedAccount] = useGlobalState('connectedAccount')
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     const root = window.document.documentElement
@@ -25,6 +27,10 @@ const Header = () => {
     localStorage.setItem('theme', theme)
     setTheme(themeColor)
   }
+  const handleLanguageChange = (event) => {
+    const selectedLanguage = event.target.value;
+    i18n.changeLanguage(selectedLanguage);
+  };
 
   return (
     <header className="sticky top-0 z-50 dark:text-blue-500">
@@ -82,9 +88,19 @@ const Header = () => {
                   dark:border dark:border-blue-500 dark:bg-transparent"
                   onClick={connectWallet}
                 >
-                  Connect Wallet
+                  {t('connectWallet')}
                 </button>
               )}
+              <select className="px-6 py-2.5 bg-blue-600 text-white
+                  font-medium text-xs leading-tight uppercase
+                  rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg
+                  focus:bg-blue-700 focus:shadow-lg focus:outline-none
+                  focus:ring-0 active:bg-blue-800 active:shadow-lg
+                  transition duration-150 ease-in-out dark:text-blue-500
+                  dark:border dark:border-blue-500 dark:bg-transparent" value={i18n.language} onChange={handleLanguageChange}>
+                    <option value="en">English</option>
+                    <option value="si">සිංහල</option>
+              </select>
             </div>
           </div>
         </div>

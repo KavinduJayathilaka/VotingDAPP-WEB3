@@ -3,6 +3,7 @@ import { FaTimes } from 'react-icons/fa'
 import { setGlobalState, useGlobalState } from '../store'
 import { raiseProposal } from '../Blockchain.services'
 import { toast } from 'react-toastify'
+import { useTranslation } from 'react-i18next'
 
 const CreateProposal = () => {
   const [createModal] = useGlobalState('createModal')
@@ -10,6 +11,7 @@ const CreateProposal = () => {
   const [amount, setAmount] = useState('')
   const [beneficiary, setBeneficiary] = useState('')
   const [description, setDescription] = useState('')
+  const { t, i18n } = useTranslation();
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -42,7 +44,7 @@ const CreateProposal = () => {
       <div className="bg-white dark:bg-[#212936] shadow-xl shadow-[#122643] dark:shadow-gray-500 rounded-xl w-11/12 md:w-2/5 h-7/12 p-6">
         <form className="flex flex-col">
           <div className="flex flex-row justify-between items-center">
-            <p className="font-semibold">Create Campaign</p>
+            <p className="font-semibold">{t('createCampaign')}</p>
             <button
               type="button"
               onClick={closeModal}
@@ -59,7 +61,7 @@ const CreateProposal = () => {
               focus:outline-none focus:ring-0"
               type="text"
               name="title"
-              placeholder="Title"
+              placeholder={t('title')}
               onChange={(e) => setTitle(e.target.value)}
               value={title}
               required
@@ -73,7 +75,7 @@ const CreateProposal = () => {
               focus:outline-none focus:ring-0"
               type="text"
               name="amount"
-              placeholder="e.g 2.5 Eth"
+              placeholder={t('egEth')}
               onChange={(e) => setAmount(e.target.value)}
               value={amount}
               required
@@ -87,7 +89,7 @@ const CreateProposal = () => {
               focus:outline-none focus:ring-0"
               type="text"
               name="beneficiary"
-              placeholder="Beneficiary Address"
+              placeholder={t('benificiaryAddress')}
               onChange={(e) => setBeneficiary(e.target.value)}
               value={beneficiary}
               required
@@ -101,7 +103,7 @@ const CreateProposal = () => {
               focus:outline-none focus:ring-0 h-20"
               type="text"
               name="description"
-              placeholder="Description"
+              placeholder={t('description')}
               onChange={(e) => setDescription(e.target.value)}
               value={description}
               required
@@ -116,7 +118,7 @@ const CreateProposal = () => {
               transition duration-150 ease-in-out mt-5"
             onClick={handleSubmit}
           >
-            Submit Campaign
+            {t('submitCampaign')}
           </button>
         </form>
       </div>

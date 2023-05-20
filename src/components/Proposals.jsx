@@ -4,10 +4,13 @@ import { Link } from 'react-router-dom'
 import { truncate, useGlobalState, daysRemaining } from '../store'
 import { payoutBeneficiary } from "../Blockchain.services";
 import { toast } from 'react-toastify'
+import { useTranslation } from 'react-i18next';
+
 
 const Proposals = () => {
   const [data] = useGlobalState('proposals')
   const [proposals, setProposals] = useState(data)
+  const { t, i18n } = useTranslation();
 
   const deactive = `bg-transparent
   text-blue-600 font-medium text-xs leading-tight
@@ -52,21 +55,21 @@ const Proposals = () => {
           className={`rounded-l-full px-6 py-2.5 ${active}`}
           onClick={getAll}
         >
-          All
+           {t('all')}
         </button>
         <button
           aria-current="page"
           className={`px-6 py-2.5 ${deactive}`}
           onClick={getOpened}
         >
-          Open
+          {t('open')}
         </button>
         <button
           aria-current="page"
           className={`rounded-r-full px-6 py-2.5 ${deactive}`}
           onClick={getClosed}
         >
-          Closed
+          {t('closed')}
         </button>
       </div>
       <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -79,25 +82,25 @@ const Proposals = () => {
                     scope="col"
                     className="text-sm font-medium px-6 py-4 text-left"
                   >
-                    Created By
+                    {t('createdBy')}
                   </th>
                   <th
                     scope="col"
                     className="text-sm font-medium px-6 py-4 text-left"
                   >
-                    Title
+                    {t('title')}
                   </th>
                   <th
                     scope="col"
                     className="text-sm font-medium px-6 py-4 text-left"
                   >
-                    Expires
+                    {t('expires')}
                   </th>
                   <th
                     scope="col"
                     className="text-sm font-medium px-6 py-4 text-left"
                   >
-                    Action
+                    {t('action')}
                   </th>
                 </tr>
               </thead>
@@ -137,7 +140,7 @@ const Proposals = () => {
                           focus:outline-none focus:ring-0 active:border-blue-800
                           transition duration-150 ease-in-out text-white bg-blue-600"
                       >
-                        View
+                        {t('view')}
                       </Link>
 
                       {new Date().getTime() >

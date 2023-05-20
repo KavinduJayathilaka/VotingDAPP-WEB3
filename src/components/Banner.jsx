@@ -3,6 +3,7 @@ import { useGlobalState, setGlobalState } from '../store'
 import { toast } from 'react-toastify'
 import { performContribute } from '../Blockchain.services'
 import bannerLogo from '../assets/svg/Business_SVG.svg'
+import { useTranslation } from 'react-i18next'
 
 const Banner = () => {
   const [isStakeholder] = useGlobalState('isStakeholder')
@@ -10,6 +11,7 @@ const Banner = () => {
   const [balance] = useGlobalState('balance')
   const [mybalance] = useGlobalState('mybalance')
   const [amount, setAmount] = useState('')
+  const { t, i18n } = useTranslation();
 
   const onPropose = () => {
     if (!isStakeholder) return
@@ -35,15 +37,15 @@ const Banner = () => {
      <img src= {bannerLogo} alt="" className="object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128" />
 		</div>
 		<div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
-			<h1 className="text-5xl font-bold leading-none sm:text-6xl">Secure
+			<h1 className="text-5xl font-bold leading-none sm:text-6xl"> Secure
 				<span className="dark:text-violet-400">Voting</span> Solutions in Sri Lanka
 			</h1>
 			<p className="mt-6 mb-8 text-lg sm:mb-12">ensuring fair and transparent elections <br />
 				<br className="hidden md:inline lg:hidden" />for all Sri Lankan citizens
 			</p>
 			<div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-				<a rel="noopener noreferrer" href="#" className="px-8 py-3 text-lg font-semibold rounded dark:bg-violet-400 dark:text-gray-900">Learn More</a>
-				<a rel="noopener noreferrer" href="#" className="px-8 py-3 text-lg font-semibold border rounded dark:border-gray-100">Contact Us</a>
+				<a rel="noopener noreferrer" href="#" className="px-8 py-3 text-lg font-semibold rounded dark:bg-violet-400 dark:text-gray-900">{t('learMore')}</a>
+				<a rel="noopener noreferrer" href="#" className="px-8 py-3 text-lg font-semibold border rounded dark:border-gray-100">{t('contactUs')}</a>
 			</div>
 		</div>
 	</div>
@@ -52,11 +54,11 @@ const Banner = () => {
 
 
       <h2 className="font-semibold text-3xl mb-5">
-        {opened()} Campaign{opened() == 1 ? '' : 's'} Currently Opened
+        {opened()} {t('campaign')}{opened() == 1 ? '' : 's'} {t('currentlyOpen')}
       </h2>
       <p>
-        Current Campaign Balance: <strong>{balance} Eth</strong> <br />
-        Your contributions:{' '}
+      {t('currentCampaignBalance')}: <strong>{balance} Eth</strong> <br />
+      {t('yourContributions')}:{' '}
         <span>
           <strong>{mybalance} Eth</strong>
           {isStakeholder ? ', and you are now a stakeholder 😊' : null}
@@ -101,7 +103,7 @@ const Banner = () => {
           data-mdb-ripple-color="light"
           onClick={onContribute}
         >
-          Contribute
+          {t('contribute')}
         </button>
 
         {isStakeholder ? (
@@ -119,7 +121,7 @@ const Banner = () => {
             data-mdb-ripple-color="light"
             onClick={onPropose}
           >
-            Propose
+            {t('propose')}
           </button>
         ) : null}
       </div>
