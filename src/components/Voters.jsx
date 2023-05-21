@@ -4,11 +4,13 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { truncate } from '../store'
 import { listVoters } from '../Blockchain.services'
+import { useTranslation } from 'react-i18next'
 
 const Voters = () => {
   const [voters, setVoters] = useState([])
   const [data, setData] = useState([])
   const { id } = useParams()
+  const { t, i18n } = useTranslation();
 
   const timeAgo = (timestamp) => moment(Number(timestamp + '000')).fromNow()
 
@@ -47,21 +49,21 @@ const Voters = () => {
           className={`rounded-l-full px-6 py-2.5 ${active}`}
           onClick={getAll}
         >
-          All
+        {t('all')}
         </button>
         <button
           aria-current="page"
           className={`px-6 py-2.5 ${deactive}`}
           onClick={getAccepted}
         >
-          Acceptees
+          {t('acceptees')}
         </button>
         <button
           aria-current="page"
           className={`rounded-r-full px-6 py-2.5 ${deactive}`}
           onClick={getRejected}
         >
-          Rejectees
+          {t('rejectees')}
         </button>
       </div>
       <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -74,19 +76,19 @@ const Voters = () => {
                     scope="col"
                     className="text-sm font-medium px-6 py-4 text-left"
                   >
-                    Voter
+                    {t('voter')}
                   </th>
                   <th
                     scope="col"
                     className="text-sm font-medium px-6 py-4 text-left"
                   >
-                    Voted
+                    {t('voted')}
                   </th>
                   <th
                     scope="col"
                     className="text-sm font-medium px-6 py-4 text-left"
                   >
-                    Vote
+                    {t('vote')}
                   </th>
                 </tr>
               </thead>
@@ -118,7 +120,7 @@ const Voters = () => {
                           focus:outline-none focus:ring-0 active:border-blue-800
                           transition duration-150 ease-in-out"
                         >
-                          Accepted
+                          {t('accepted')}
                         </button>
                       ) : (
                         <button
@@ -128,7 +130,7 @@ const Voters = () => {
                           focus:outline-none focus:ring-0 active:border-red-800
                           transition duration-150 ease-in-out"
                         >
-                          Rejected
+                           {t('rejected')}
                         </button>
                       )}
                     </td>

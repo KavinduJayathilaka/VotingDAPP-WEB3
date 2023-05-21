@@ -12,12 +12,14 @@ import {
 } from 'recharts'
 import { getProposal, voteOnProposal } from '../Blockchain.services'
 import { useGlobalState, daysRemaining } from '../store'
+import { useTranslation } from 'react-i18next'
 
 const ProposalDetails = () => {
   const { id } = useParams()
   const [proposal, setProposal] = useState(null)
   const [data, setData] = useState([])
   const [isStakeholder] = useGlobalState('isStakeholder')
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     retrieveProposal()
@@ -88,7 +90,7 @@ const ProposalDetails = () => {
               data-mdb-ripple-color="light"
               onClick={() => onVote(true)}
             >
-              Vote
+              {t('vote')}
             </button>
             <button
               type="button"
@@ -104,7 +106,7 @@ const ProposalDetails = () => {
               data-mdb-ripple-color="light"
               onClick={() => onVote(false)}
             >
-              Reject
+              {t('reject')}
             </button>
           </>
         ) : null}

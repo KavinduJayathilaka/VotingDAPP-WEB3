@@ -34,7 +34,14 @@ i18next
                     expires: 'Expires',
                     action: 'Action',
                     view: 'View',
-
+                    vote: 'Vote',
+                    reject: 'Reject',
+                    acceptees: 'Acceptees',
+                    rejectees: 'Rejectees',
+                    voter: 'Voter',
+                    voted: 'Voted',
+                    accepted: 'Accepted',
+                    rejected: 'Rejected',
 
                 },
             },
@@ -67,7 +74,14 @@ i18next
                     expires: 'කල් ඉකුත් වීම',
                     action: 'ක්‍රියාකාරකම',
                     view: 'පෙන්වන්න',
-
+                    vote: 'ඡන්දය දෙන්න',
+                    reject: 'ප්‍රතික්ෂේප කරන්න',
+                    acceptees: 'පිළිගන්නා අය',
+                    rejectees: 'ප්රතික්ෂේප කරන්නන්',
+                    voter: 'ඡන්දදායකයා',
+                    voted: 'ඡන්දය දුන්නා',
+                    accepted: 'පිළිගන්නා',
+                    rejected: 'ප්රතික්ෂේප කළා',
 
                 },
             },
